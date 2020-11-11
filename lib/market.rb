@@ -58,4 +58,8 @@ class Market
     end
     overstocked_items.flatten
   end
+
+  def date
+    Date.today.strftime("%d/%m/%Y")
+  end
 end
