@@ -48,4 +48,14 @@ class Market
     end
     foods
   end
+
+  def overstocked_items
+    overstocked_items = []
+    total_inventory.find_all do |item, quantity|
+     if quantity[:quantity] >= 50 && vendors_that_sell(item).count > 1
+      overstocked_items << item
+     end
+    end
+    overstocked_items.flatten
+  end
 end
