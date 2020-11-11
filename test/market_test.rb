@@ -51,14 +51,14 @@ class MarketTest < Minitest::Test
     assert_equal expected, @market.vendors
   end
 
-  def test_vendors_names
+  def test_vendors_that_sell
     vendor1 = Vendor.new("Rocky Mountain Fresh")
     vendor1.stock(@item1, 35)
 
     vendor1.stock(@item2, 7)
 
     vendor2 = Vendor.new("Ba-Nom-a-Nom")
-   
+  
 
     vendor2.stock(@item4, 50)
 
@@ -75,8 +75,10 @@ class MarketTest < Minitest::Test
 
     @market.add_vendor(vendor3)
 
-    expected = ["Rocky Mountain Fresh", "Ba-Nom-a-Nom", "Palisade Peach Shack"]
+    expected1 = [vendor1, vendor3]
+    expected2 = [vendor2]
 
-    assert_equal expected, @market.vendor_names 
+    assert_equal expected1, @market.test_vendors_that_sell(@item1)
+    assert_equal expected2, @market.test_vendors_that_sell(@item4)
   end
 end
