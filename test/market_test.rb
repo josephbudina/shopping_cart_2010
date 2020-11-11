@@ -78,7 +78,7 @@ class MarketTest < Minitest::Test
     expected1 = [vendor1, vendor3]
     expected2 = [vendor2]
 
-    assert_equal expected1, @market.test_vendors_that_sell(@item1)
-    assert_equal expected2, @market.test_vendors_that_sell(@item4)
+    assert_equal expected1, @market.vendors_that_sell(@item1)
+    assert_equal expected2, @market.vendors_that_sell(@item4)
   end
 end
