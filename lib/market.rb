@@ -20,4 +20,12 @@ class Market
       vendor.inventory.include?(item) 
     end
   end
+
+  def sorted_item_list
+    @vendors.flat_map do |vendor|
+      vendor.inventory.map do |item, name|
+        item.name
+      end
+    end.sort.uniq
+  end
 end
