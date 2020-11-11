@@ -77,6 +77,6 @@ class MarketTest < Minitest::Test
 
     expected = ["Rocky Mountain Fresh", "Ba-Nom-a-Nom", "Palisade Peach Shack"]
 
-    assert_equal expected, @market.names 
+    assert_equal expected, @market.vendor_names 
   end
 end
