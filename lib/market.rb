@@ -62,4 +62,8 @@ class Market
   def date
     Date.today.strftime("%d/%m/%Y")
   end
+
+  def sell(item, amount)
+   
+  end
 end

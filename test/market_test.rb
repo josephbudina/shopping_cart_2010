@@ -251,7 +251,7 @@ class MarketTest < Minitest::Test
     assert_equal "24/02/2020", @market.date
   end
 
-  def test_overstocked_items 
+  def test_it_can_sell 
     vendor1 = Vendor.new("Rocky Mountain Fresh")
     vendor1.stock(@item1, 35)
     
@@ -288,7 +288,5 @@ class MarketTest < Minitest::Test
 
     assert_equal 0, vendor1.check_stock(@item1)
     assert_equal 60, vendor3.check_stock(@item1)
-
-    assert_equal [@item1], @market.overstocked_items
   end
 end
