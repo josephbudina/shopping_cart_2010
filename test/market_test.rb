@@ -215,4 +215,32 @@ class MarketTest < Minitest::Test
 
     assert_equal expected, @market.item_list
   end
+  
+  def test_overstocked_items 
+    vendor1 = Vendor.new("Rocky Mountain Fresh")
+    vendor1.stock(@item1, 35)
+    
+    vendor1.stock(@item2, 7)
+    
+    vendor2 = Vendor.new("Ba-Nom-a-Nom")
+    
+    
+    vendor2.stock(@item4, 50)
+    
+    vendor2.stock(@item3, 25)
+    
+    vendor3 = Vendor.new("Palisade Peach Shack")
+    
+    
+    vendor3.stock(@item1, 65)
+    vendor3.stock(@item3, 10)
+    
+    @market.add_vendor(vendor1)
+    
+    @market.add_vendor(vendor2)
+    
+    @market.add_vendor(vendor3)
+
+    assert_equal [@item1], @market.overstocked_items
+  end
 end
